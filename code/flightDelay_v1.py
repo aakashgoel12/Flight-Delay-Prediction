@@ -13,7 +13,7 @@
 # __email__ = aakashgoel12@gmail.com
 # ****
 
-# In[117]:
+# In[1]:
 
 from __future__ import division
 import warnings
@@ -24,7 +24,7 @@ pd.options.display.max_columns = 150
 import numpy as np
 import os,gc,holidays,datetime
 from math import radians, sin, cos, acos,ceil
-
+from copy import deepcopy
 #sklearn imports
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
@@ -32,8 +32,13 @@ from sklearn.metrics import roc_auc_score
 from sklearn.utils import class_weight
 from sklearn.metrics import roc_curve
 from sklearn.metrics import mean_squared_error,mean_absolute_error
+from sklearn.pipeline import make_pipeline
+from sklearn.preprocessing import RobustScaler
+from sklearn.preprocessing import LabelEncoder
+from sklearn.metrics import r2_score
 
 ## Modelling imports
+from sklearn.linear_model import LinearRegression,ElasticNet, Lasso
 from sklearn.ensemble import GradientBoostingRegressor
 from catboost import Pool,CatBoostClassifier,CatBoostRegressor
 # visualization imports
@@ -871,9 +876,7 @@ plt.show()
 
 # In[127]:
 
-from copy import deepcopy
-from sklearn.preprocessing import LabelEncoder
-from sklearn.metrics import r2_score
+
 
 # Copy data so that if any changes made to this data, not affect original data. 
 tx2 = deepcopy(g2_train_x)

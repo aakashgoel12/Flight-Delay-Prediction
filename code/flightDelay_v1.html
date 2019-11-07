@@ -11764,7 +11764,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[117]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span>
@@ -11776,7 +11776,7 @@ div#notebook {
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">os</span><span class="o">,</span><span class="nn">gc</span><span class="o">,</span><span class="nn">holidays</span><span class="o">,</span><span class="nn">datetime</span>
 <span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">radians</span><span class="p">,</span> <span class="n">sin</span><span class="p">,</span> <span class="n">cos</span><span class="p">,</span> <span class="n">acos</span><span class="p">,</span><span class="n">ceil</span>
-
+<span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">deepcopy</span>
 <span class="c1">#sklearn imports</span>
 <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
 <span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestClassifier</span>
@@ -11784,8 +11784,13 @@ div#notebook {
 <span class="kn">from</span> <span class="nn">sklearn.utils</span> <span class="kn">import</span> <span class="n">class_weight</span>
 <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">roc_curve</span>
 <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_squared_error</span><span class="p">,</span><span class="n">mean_absolute_error</span>
+<span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">make_pipeline</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">RobustScaler</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">LabelEncoder</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">r2_score</span>
 
 <span class="c1">## Modelling imports</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span><span class="p">,</span><span class="n">ElasticNet</span><span class="p">,</span> <span class="n">Lasso</span>
 <span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">GradientBoostingRegressor</span>
 <span class="kn">from</span> <span class="nn">catboost</span> <span class="kn">import</span> <span class="n">Pool</span><span class="p">,</span><span class="n">CatBoostClassifier</span><span class="p">,</span><span class="n">CatBoostRegressor</span>
 <span class="c1"># visualization imports</span>
@@ -18188,11 +18193,7 @@ Shrink model to first 400 iterations.
 <div class="prompt input_prompt">In&nbsp;[127]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">deepcopy</span>
-<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">LabelEncoder</span>
-<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">r2_score</span>
-
-<span class="c1"># Copy data so that if any changes made to this data, not affect original data. </span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Copy data so that if any changes made to this data, not affect original data. </span>
 <span class="n">tx2</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">g2_train_x</span><span class="p">)</span>
 <span class="n">ty2</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">g2_train_y</span><span class="p">)</span>
 
