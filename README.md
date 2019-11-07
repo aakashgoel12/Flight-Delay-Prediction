@@ -31,26 +31,26 @@ All Ideas regarding feature engineering:
 ****
 
 **Scheduled departure and arrival time** (Feature - 1)
-    - convert scheduled departure and arrival time into hour
+- convert scheduled departure and arrival time into hour
 **Source Airport (Origin)** (Feature - 2)     
-    - Get Total number of flights pre and post one hour from source airport for specific day    
-    - Get historical average delay for each source airport
+- Get Total number of flights pre and post one hour from source airport for specific day    
+- Get historical average delay for each source airport
 **Flying Date**  (Feature - 3)
-    - Using holiday calendar of USA, create binary variable if flying day is holiday or not
-    - Using feature day of week, create feature weekend i.e get if it is saturday/sunday or not
-        - create extended weekend variable with buffer of 1 day i.e. if day of week is Friday or Monday then its  extended weekend
-    - create week number from day of month
+- Using holiday calendar of USA, create binary variable if flying day is holiday or not
+- Using feature day of week, create feature weekend i.e get if it is saturday/sunday or not
+- create extended weekend variable with buffer of 1 day i.e. if day of week is Friday or Monday then its  extended weekend
+- create week number from day of month
 **Source and destination airport ** (Feature - 4)
-    - From source and destination airport code, Get state, city,latitude and longitude
-        - Using lat,long for source and destination airport, create distance as feature between airports
-        - Using State, create feature 'same_state' i.e. if both source and destination lies in same state
-        - Using city, create city level features (like population, forecasted weather details like rainy,cloudy)
-        - Get count of airports in each state i.e. state level feature
+- From source and destination airport code, Get state, city,latitude and longitude
+    - Using lat,long for source and destination airport, create distance as feature between airports
+    - Using State, create feature 'same_state' i.e. if both source and destination lies in same state
+    - Using city, create city level features (like population, forecasted weather details like rainy,cloudy)
+    - Get count of airports in each state i.e. state level feature
 ** Unique Carrier (company)** (Feature - 5)       
-    - create historical average delay as feature for each carrier (company)
-    - create percentages of flights for each carrier (company)
+- create historical average delay as feature for each carrier (company)
+- create percentages of flights for each carrier (company)
 **Tail Number** (Feature - 6)    
-    - Using TailNumber, get feature like manufacturing year (Age of aircraft), engine type. 
+- Using TailNumber, get feature like manufacturing year (Age of aircraft), engine type. 
 
 ## Step IV: Building  Model 
 
@@ -95,7 +95,7 @@ state and destination state
 - Cross validation technique while model taining and prediction can also be used
 - Hyperparameter Tuning can also be performed but as of now hardware resource (less computation power) is constraint.
 - Ensemble, Stacking techniques can also be experimented to improve results.
-
+****
 1) https://www.flightradar24.com/data/aircraft/ + {each tail no}
 
 2) https://datascience.stackexchange.com/questions/5990/what-is-a-good-way-to-transform-cyclic-ordinal-attributes 
